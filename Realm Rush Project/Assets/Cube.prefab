@@ -127,6 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4340170587549388}
   - component: {fileID: 114160071563475622}
+  - component: {fileID: 114158536544580352}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -198,7 +199,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1924114317159650}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 9, y: 9, z: 9}
   m_Children:
@@ -655,6 +656,17 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4278190080
+--- !u!114 &114158536544580352
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924114317159650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e543ca5d2e1b66347bd469fe3265c979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114160071563475622
 MonoBehaviour:
   m_ObjectHideFlags: 1
