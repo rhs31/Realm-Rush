@@ -405,6 +405,8 @@ MonoBehaviour:
   collisionMesh: {fileID: 65598544800772234}
   hitPoints: 10
   hitParticlePrefab: {fileID: 198766914743003100}
+  deathParticlePrefab: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
+    type: 2}
 --- !u!114 &114854420731392464
 MonoBehaviour:
   m_ObjectHideFlags: 1

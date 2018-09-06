@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour {
 
     [SerializeField] Collider collisionMesh;
-    [SerializeField] int hitPoints = 5;
+    [SerializeField] int hitPoints = 10;
     [SerializeField] ParticleSystem hitParticlePrefab;
     [SerializeField] ParticleSystem deathParticlePrefab;
     // Use this for initialization
