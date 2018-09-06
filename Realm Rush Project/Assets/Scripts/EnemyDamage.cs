@@ -6,7 +6,9 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour {
 
     [SerializeField] Collider collisionMesh;
-    [SerializeField] int hitPoints = 10;
+    [SerializeField] int hitPoints = 5;
+    [SerializeField] ParticleSystem hitParticlePrefab;
+    [SerializeField] ParticleSystem deathParticlePrefab;
     // Use this for initialization
 	void Start () {
 		
@@ -24,10 +26,14 @@ public class EnemyDamage : MonoBehaviour {
     void ProcessHit()
     {
         hitPoints = hitPoints - 1;
+        hitParticlePrefab.Play();
     }
 
     private void KillEnemy()
     {
+        // could also have childed this to enemy and simply played it
+        var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
+        vfx.Play();
         Destroy(gameObject);
     }
 }
