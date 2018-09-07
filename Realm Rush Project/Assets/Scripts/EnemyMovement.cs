@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour {
-
+    [SerializeField] float movementPeriod = .5f;
+    [SerializeField] ParticleSystem goalParticle;
 
     // Use this for initialization
 	void Start () {
@@ -19,10 +20,21 @@ public class EnemyMovement : MonoBehaviour {
         foreach (Waypoint waypoint in path)
         {
             transform.position = waypoint.transform.position;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(movementPeriod);
         }
-        print("Ending patrol");
-    }
+        SelfDestruct();
 
+    }
+    private void SelfDestruct()
+    {
+        // could also have childed this to enemy and simply played it
+        var vfx = Instantiate(goalParticle, transform.position, Quaternion.identity);
+        vfx.Play();
+        float destroyDelay = vfx.main.duration;
+
+        // destroy particle after delay (can't use destroy gameobject, because gets rid of script)
+        Destroy(vfx.gameObject, destroyDelay); // NEED vfx.gameobject, vfx is the effect itself
+        Destroy(gameObject);
+    }
 
 }

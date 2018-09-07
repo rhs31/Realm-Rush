@@ -1,26 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemySpawner : MonoBehaviour {
 
     [Range(0.1f, 120f)]
     [SerializeField] float secondsBetweenSpawns = 4f;
     [SerializeField] EnemyMovement enemyPrefab; // could also use an interface or inheritance if we want to ensure it's an enemy
+    [SerializeField] Transform enemyParentTransform;
+    [SerializeField] Text spawnedEnemies;
+    int score;
 
     // Use this for initialization
 	void Start () {
         StartCoroutine(RepeatedlySpawnEnemies());
+        spawnedEnemies.text = score.ToString();
 	}
 	
     IEnumerator RepeatedlySpawnEnemies()
     {
         while(true)
         {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            AddScore();
+            var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+            newEnemy.transform.parent = enemyParentTransform;
             yield return new WaitForSeconds(secondsBetweenSpawns);
         }
-       
+
     }
 
+    private void AddScore()
+    {
+        score++;
+        spawnedEnemies.text = score.ToString();
+    }
 }

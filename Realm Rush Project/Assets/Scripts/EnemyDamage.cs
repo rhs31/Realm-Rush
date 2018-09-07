@@ -34,6 +34,10 @@ public class EnemyDamage : MonoBehaviour {
         // could also have childed this to enemy and simply played it
         var vfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         vfx.Play();
+        float destroyDelay = vfx.main.duration;
+
+        // destroy particle after delay (can't use destroy gameobject, because gets rid of script)
+        Destroy(vfx.gameObject, destroyDelay); // NEED vfx.gameobject, vfx is the effect itself
         Destroy(gameObject);
     }
 }

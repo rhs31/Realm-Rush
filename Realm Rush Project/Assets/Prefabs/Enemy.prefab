@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionMesh: {fileID: 65598544800772234}
-  hitPoints: 10
+  hitPoints: 5
   hitParticlePrefab: {fileID: 198766914743003100}
   deathParticlePrefab: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
     type: 2}
@@ -418,6 +418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec4f2e7b4f8cf7478f87c46b1632756, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementPeriod: 0.5
+  goalParticle: {fileID: 198537984209914932, guid: a4fe123ad3f05be44b27f4bb3da89fde,
+    type: 2}
 --- !u!198 &198051237521758964
 ParticleSystem:
   m_ObjectHideFlags: 1
