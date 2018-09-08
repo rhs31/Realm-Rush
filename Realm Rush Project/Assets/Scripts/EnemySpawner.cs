@@ -10,7 +10,9 @@ public class EnemySpawner : MonoBehaviour {
     [SerializeField] EnemyMovement enemyPrefab; // could also use an interface or inheritance if we want to ensure it's an enemy
     [SerializeField] Transform enemyParentTransform;
     [SerializeField] Text spawnedEnemies;
+    [SerializeField] AudioClip spawnedEnemySFX;
     int score;
+
 
     // Use this for initialization
 	void Start () {
@@ -23,6 +25,7 @@ public class EnemySpawner : MonoBehaviour {
         while(true)
         {
             AddScore();
+            GetComponent<AudioSource>().PlayOneShot(spawnedEnemySFX);
             var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
             newEnemy.transform.parent = enemyParentTransform;
             yield return new WaitForSeconds(secondsBetweenSpawns);
